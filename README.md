@@ -35,7 +35,7 @@ towards the viewer.</p>
 </article>
 ```
 
-On execution, the marginalia.js _moves_ the marginalia-comments to the appropriate element inside an ordered list with ```html class="marginalia-list" ```
+On execution, the marginalia.js _moves_ the marginalia-comments to the appropriate element inside an ordered list with ``` class="marginalia-list" ```
 
 ```html
 <ol class="marginalia-list"><li data-fragmention="##Samsa+woke+from+troubled+dreams">This is a marginalia-comment.</li></ol>
@@ -46,7 +46,7 @@ It also adds a button to toggle marginalia visibility. The button is marked up a
 ```html
 <button class="marginalia-button"><span>Show</span></button>
 ```
-when the marginalia is hidden and with text "Hide" when marginalia are visible. On click the button adds an attribute ```html data-marginalia-active ``` to the parent element.
+when the marginalia is hidden and with text "Hide" when marginalia are visible. On click the button adds an attribute ``` data-marginalia-active ``` to the parent element.
 
 All styling can be done using these classes as CSS hooks. See example post: [Marginalia](https://kartikprabhu.com/article/marginalia)
 
@@ -55,5 +55,4 @@ All styling can be done using these classes as CSS hooks. See example post: [Mar
 
 ## Go forth
 
-Now [use this yourself](https://github.com/chapmanu/fragmentions/blob/master/example.html) and [give us feedback](https://github.com/chapmanu/fragmentions/issues), and have fun!
-
+Now [use this yourself](https://github.com/kartikprabhu/marginalia) and [give us feedback](https://github.com/kartikprabhu/marginalia/issues).

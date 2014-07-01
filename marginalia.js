@@ -23,11 +23,10 @@
 
 		for(var i = 0, node; node = matches[i]; i++){
 			if(node != el){
-			node.removeAttribute(attr);
-			var btn = node.querySelector(".marginalia-button");
-			btn.innerHTML = "<span>Show</span>";
-			btn.setAttribute('class', 'marginalia-button');
-			if(node == el){alert("blergh");}
+				node.removeAttribute(attr);
+				var btn = node.querySelector(".marginalia-button");
+				btn.innerHTML = "<span>Show</span>";
+				btn.setAttribute('class', 'marginalia-button');
 			}
 		}
 
@@ -64,9 +63,7 @@
 			element.appendChild( ol );
 
 		}
-		var note_copy = note.cloneNode(true);
-		note_copy.removeAttribute('id');
-		ol.appendChild(note_copy);
+		ol.appendChild(note);
 	}
 
 
@@ -108,8 +105,7 @@
 
 
 	// get all responses and process them
-	var responses = document.querySelector('#response-list').children;
-
+	var responses = document.querySelector('#response-list').querySelectorAll('[data-fragmention]');
 	for(var i = 0; i < responses.length; i++){
 
 		process_marginalia(responses[i]);
