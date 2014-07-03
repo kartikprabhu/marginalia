@@ -2,6 +2,10 @@
 
 (function(){
 
+	function insertAfter(referenceNode, newNode) {
+		referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+	}
+
 	function getElementsByText(scope, text) {
 		// iterate descendants of scope
 		for (var all = scope.childNodes, index = 0, element, list = []; (element = all[index]); ++index) {
@@ -47,9 +51,9 @@
 
 	function add_marginalia(element, note){
 
-		var ol = element.querySelector('.marginalia-list') || false;
+		var ol = element.nextElementSibling || false;
 
-		if(!ol){
+		if(!ol || !ol.classList.contains("marginalia-list")){
 
 			ol = document.createElement('ol');
 			ol.setAttribute('class', 'marginalia-list');
@@ -60,7 +64,7 @@
 			button.addEventListener('click', function(){toggle_marginalia(element, button);}, false)
 
 			element.appendChild( button );
-			element.appendChild( ol );
+			insertAfter(element, ol);
 
 		}
 		ol.appendChild(note);
