@@ -2,6 +2,12 @@
 
 (function(){
 
+	var
+	CONTAINER_EXTRA_CLASS = "",
+	BTN_EXTRA_CLASS = "",
+	BTN_HTML_SHOW = "<span>Show</span>",
+	BTN_HTML_HIDE = "<span>Hide</span>";
+
 	function insertAfter(referenceNode, newNode) {
 		referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 	}
@@ -29,22 +35,19 @@
 			if(node != el){
 				node.removeAttribute(attr);
 				var btn = node.querySelector(".marginalia-button");
-				btn.innerHTML = "<span>Show</span>";
-				btn.setAttribute('class', 'marginalia-button');
+				btn.innerHTML = BTN_HTML_SHOW;
 			}
 		}
 
 		if(el.hasAttribute(attr)){
 			// if active make inactive
 			el.removeAttribute(attr);
-			button.innerHTML = "<span>Show</span>";
-			button.setAttribute('class', 'marginalia-button');
+			button.innerHTML = BTN_HTML_SHOW;
 
 		}else{
 			// if inactive make active
 			el.setAttribute(attr, '');
-			button.innerHTML = "<span>Hide</span>";
-			button.setAttribute('class', 'marginalia-button');
+			button.innerHTML = BTN_HTML_HIDE;
 		}
 
 	}
@@ -55,12 +58,13 @@
 
 		if(!ol || !ol.classList.contains("marginalia-list")){
 
-			ol = document.createElement('ol');
-			ol.setAttribute('class', 'marginalia-list');
+			ol = document.createElement(CONTAINER_NAME);
+			ol.setAttribute('class', 'marginalia-list '+CONTAINER_EXTRA_CLASS);
 
 			var button = document.createElement('button');
-			button.setAttribute('class', 'marginalia-button');
-			button.innerHTML = "<span>Show</span>";
+			button.setAttribute('class', 'marginalia-button '+BTN_EXTRA_CLASS);
+			button.innerHTML = BTN_HTML_SHOW;
+
 			button.addEventListener('click', function(){toggle_marginalia(element, button);}, false)
 
 			element.appendChild( button );
@@ -109,7 +113,10 @@
 
 
 	// get all responses and process them
-	var responses = document.querySelector('#response-list').querySelectorAll('[data-fragmention]');
+	var container = document.querySelector('#response-list');
+	var CONTAINER_NAME = container.tagName;
+	var responses = container.querySelectorAll('[data-fragmention]');
+	
 	for(var i = 0; i < responses.length; i++){
 
 		process_marginalia(responses[i]);
