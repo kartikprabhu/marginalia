@@ -1,6 +1,6 @@
 # Marginalia
 
-Marginalia (or annotations) are comments addressed to a particular part of a webpage (or blog post) instead of the entire page. This is a javascript to implement an indieweb-style marginalia system using [fragmention](http://www.kevinmarks.com/fragmentions.html).
+Marginalia (or annotations) are comments addressed to a particular part of a webpage (or blog post) instead of the entire page. This is a javascript to implement an indieweb-style marginalia system using [fragmention](http://www.kevinmarks.com/fragmentions.html). See example post using this code: [Marginalia](https://kartikprabhu.com/article/marginalia)
 
 ## Customisation
 
@@ -78,7 +78,7 @@ looked.<button class="marginalia-button my-button"><span>Show</span></button></p
 
 On click the button adds an attribute ``` data-marginalia-active ``` to the parent element like so ```<p data-marginalia-active="">One morning, when Gregor Samsa...</p>```
 
-All styling can be done using these classes as CSS hooks. See example post: [Marginalia](https://kartikprabhu.com/article/marginalia)
+All styling can be done using these classes as CSS hooks.
 
 
 
