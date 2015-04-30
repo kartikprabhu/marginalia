@@ -1,5 +1,3 @@
-'use strict';
-
 (function(){
 
 	var
@@ -79,8 +77,8 @@
 
 		var frag = el.getAttribute("data-fragmention")
 
-		// if fragmention exists and is actual fragmention not fragment
-		if(frag && frag.substring(0, 2) == "##"){
+		// if fragmention exists
+		if(frag){
 
 			// decode frag to string
 			var match = decodeURIComponent(frag.substring(2)).replace(/\+/g, ' ').split('  ');
