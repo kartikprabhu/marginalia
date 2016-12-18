@@ -1,4 +1,11 @@
+'use strict';
+
 (function(){
+
+	// mustard-cutting
+	if (!document.querySelector || !document.querySelectorAll) {
+		return;
+	}
 
 	var
 	CONTAINER_EXTRA_CLASS = "",
@@ -23,21 +30,21 @@
 		return list.length ? list : scope;
 	}
 
-	function toggle_marginalia(el, button){
+	function toggle_marginalia(el, button) {
 
 		var attr = 'data-marginalia-active';
 
 		var matches = document.querySelectorAll("[data-marginalia-active]");
 
-		for(var i = 0, node; node = matches[i]; i++){
-			if(node != el){
+		for(var i = 0, node; node = matches[i]; i++) {
+			if (node != el) {
 				node.removeAttribute(attr);
 				var btn = node.querySelector(".marginalia-button");
 				btn.innerHTML = BTN_HTML_SHOW;
 			}
 		}
 
-		if(el.hasAttribute(attr)){
+		if (el.hasAttribute(attr)) {
 			// if active make inactive
 			el.removeAttribute(attr);
 			button.innerHTML = BTN_HTML_SHOW;
@@ -50,11 +57,11 @@
 
 	}
 
-	function add_marginalia(element, note){
+	function add_marginalia(element, note) {
 
 		var ol = element.nextElementSibling || false;
 
-		if(!ol || !ol.classList.contains("marginalia-list")){
+		if (!ol || !ol.classList.contains("marginalia-list")) {
 
 			ol = document.createElement(CONTAINER_NAME);
 			ol.setAttribute('class', 'marginalia-list '+CONTAINER_EXTRA_CLASS);
@@ -63,7 +70,7 @@
 			button.setAttribute('class', 'marginalia-button '+BTN_EXTRA_CLASS);
 			button.innerHTML = BTN_HTML_SHOW;
 
-			button.addEventListener('click', function(){toggle_marginalia(element, button);}, false)
+			button.addEventListener('click', function() {toggle_marginalia(element, button);}, false)
 
 			element.appendChild( button );
 			insertAfter(element, ol);
@@ -73,12 +80,12 @@
 	}
 
 
-	function process_marginalia(el){
+	function process_marginalia(el) {
 
 		var frag = el.getAttribute("data-fragmention")
 
 		// if fragmention exists
-		if(frag){
+		if (frag) {
 
 			// decode frag to string
 			var match = decodeURIComponent(frag.substring(2)).replace(/\+/g, ' ').split('  ');
@@ -99,7 +106,7 @@
 			var element = length && elements[index];
 
 			// do marginalia things if not whole document
-			if(element && element != document){
+			if (element && element != document) {
 
 				add_marginalia(element, el);
 
@@ -112,13 +119,15 @@
 
 	// get all responses and process them
 	var container = document.querySelector('#response-list');
-	var CONTAINER_NAME = container.tagName;
-	var responses = container.querySelectorAll('[data-fragmention]');
+	//if container for responses is found then process
+	if (container) {
+		var CONTAINER_NAME = container.tagName;
+		var responses = container.querySelectorAll('[data-fragmention]');
 	
-	for(var i = 0; i < responses.length; i++){
+		for (var i = 0; i < responses.length; i++) {
 
-		process_marginalia(responses[i]);
+			process_marginalia(responses[i]);
 
+		}
 	}
-
 })();
