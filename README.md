@@ -1,6 +1,6 @@
 # Marginalia
 
-Marginalia (or annotations) are comments addressed to a particular part of a webpage (or blog post) instead of the entire page. This is a javascript to implement an indieweb-style marginalia system using [fragmention](http://www.kevinmarks.com/fragmentions.html). See example post using this code: [Marginalia](https://kartikprabhu.com/article/marginalia)
+Marginalia (or annotations) are comments addressed to a particular part of a webpage (or blog post) instead of the entire page. This is a javascript to implement an indieweb-style marginalia system using [fragmention](http://www.kevinmarks.com/fragmentions.html). See example post using this code: [Marginalia](https://www.kartikprabhu.com/article/marginalia)
 
 ## Customisation
 
